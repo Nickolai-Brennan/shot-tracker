@@ -17,3 +17,22 @@ assert.equal(players.length,2);assert.deepEqual(players.find(p=>p.id==='1').roun
 assert.equal(scheduleEvents({tournaments:[{tournamentId:'R2025034',name:'Travelers'},{tournamentId:'R2026034',name:'Other season'},{tournamentId:'R2025034',name:'Duplicate'}]},2025).length,1);
 assert.match(officialPageUrl('R2025034','Travelers Championship'),/2025\/travelers-championship\/R2025034\/leaderboard$/);
 console.log('Passed: season filtering, participant deduplication, alternates/withdrawals, scorecard reconciliation, stroke-vs-drop separation, sampled verification mismatches.');
+
+// Headshots are optional source metadata, not a generated player-ID URL.
+const imageUrl='https://images.example.com/player-1.png';
+const imagePlayers=eventParticipants({players:[{id:'1',headshotUrl:imageUrl}]},{players:[{player:{id:'1'},scoringData:{rounds:[72]}}]});
+assert.equal(imagePlayers[0].headshotUrl,imageUrl);
+assert.equal(imagePlayers[0].headshotSource,'field.players.headshotUrl');
+const boardImage=eventParticipants(null,{players:[{player:{id:'2',headshot:'https://images.example.com/player-2.png'}}]})[0];
+assert.equal(boardImage.headshotUrl,'https://images.example.com/player-2.png');
+assert.equal(boardImage.headshotSource,'leaderboard.players.player.headshot');
+for(const invalid of [null,undefined,'','   ','/relative.png','http://images.example.com/p.png','javascript:alert(1)','https://user:secret@images.example.com/p.png',{},23]){
+ const player=eventParticipants({players:[{id:'3',headshotUrl:invalid}]},null)[0];
+ assert.equal(player.headshotUrl,null);assert.equal(player.headshotSource,null);
+}
+const alternateImage=eventParticipants({alternates:[{id:'4',headshotUrl:imageUrl}]},null)[0];
+assert.equal(alternateImage.headshotSource,'field.alternates.headshotUrl');
+const mergedImage=eventParticipants({players:[{id:'1',headshotUrl:imageUrl}]},{players:[{player:{id:'1',headshotUrl:'not-a-url'}}]})[0];
+assert.equal(mergedImage.headshotUrl,imageUrl);
+assert.equal(eventParticipants({players:[{id:'5',headshotUrl:'bad',headshot:imageUrl}]},null)[0].headshotUrl,imageUrl);
+console.log('Passed: nullable source headshots, source provenance, duplicate merge retention and unsafe/malformed URL rejection.');
