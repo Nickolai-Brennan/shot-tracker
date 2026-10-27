@@ -4,7 +4,17 @@ Versioned workspace for TOURCAST Shot Lab, the Python extractor, and the flight 
 
 ## Version status
 
-**Version 1 source is frozen as-is** on `release/v1.0.0`; [lock details](docs/releases/V1_LOCK.md) and [158-file source inventory](releases/v1.0.0.json) record the checkpoint. Known bugs and unfinished features remain explicit. **Weather moves to version 2**, tracked in [IVI-288](https://linear.app/nthezone/issue/IVI-288/version-2-event-weather-widget-and-api-with-hole-110-group-tracking) and the [v2 roadmap](docs/V2_ROADMAP.md). New work is separated on `version/2.0`. Branch protection is not configured.
+**Version 1 source is frozen as-is** on `release/v1.0.0`; [lock details](docs/releases/V1_LOCK.md) and [158-file source inventory](releases/v1.0.0.json) record the checkpoint. Known bugs and unfinished features remain explicit. **Version 2 owns statistics/rankings and weather context**; weather is tracked in [IVI-288](https://linear.app/nthezone/issue/IVI-288/version-2-event-weather-widget-and-api-with-hole-110-group-tracking) and the [v2 roadmap](docs/V2_ROADMAP.md). New work is separated on `version/2.0`. Branch protection is not configured.
+
+## Product layers
+
+| Version | Focus | Detailed scope |
+|---|---|---|
+| 1 | Single-shot data, hole by hole, by round and by event | Frozen source snapshot |
+| 2 | Player/group/event/course statistics, leaderboards, rankings and context | [Statistics roadmap](docs/V2_ROADMAP.md) |
+| 3 | Custom models, player profiles and expected outcomes/projections | [Model roadmap](docs/V3_ROADMAP.md) |
+
+[Canonical three-version roadmap](docs/VERSION_ROADMAP.md). Scope definitions do not imply features are implemented.
 
 ## Start here
 

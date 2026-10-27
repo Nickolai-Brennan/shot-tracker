@@ -10,6 +10,10 @@ This confirms the name, purpose, percentile threshold, scatter-data input, map d
 
 **Implementation status:** entity definition and machine-readable contract added; field collection, zone computation, map overlay, grading and projection are not implemented by this documentation change. The current app retrieves player-rounds, not a complete comparable field cohort. No actual field zone or example boundary is fabricated here.
 
+## Version ownership
+
+The latest [program version roadmap](VERSION_ROADMAP.md) separates the existing v1 entity/style and shot-level foundation from **v2 descriptive field scatter, rankings, percentile and supported region summaries**, and **v3 custom position-value, reachability, optimization, grading and projection models**. The frozen v1 source remains unchanged. A region generated from historical outcomes is labeled descriptive; it is not automatically a predictive player-specific optimum.
+
 ## Meaning of 90th percentile+
 
 The cutoff describes **shot/location quality within a defined comparison group**. Higher percentile means better under the named metric. It does not mean an area containing 90% of all shots, a 90% chance of landing there, or 90% statistical confidence.
