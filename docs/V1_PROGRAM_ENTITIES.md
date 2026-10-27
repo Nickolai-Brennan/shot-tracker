@@ -12,6 +12,10 @@ This is the working version 1.0 entity specification and the place to record con
 
 The current program source is frozen as an **as-is version 1 snapshot**, with limitations preserved. See [Version 1 lock](releases/V1_LOCK.md) and [Version 2 roadmap](V2_ROADMAP.md). This entity model includes planned capabilities; freezing source does not make them implemented. Weather widget/API/checkpoint work is explicitly version 2 under [IVI-288](https://linear.app/nthezone/issue/IVI-288/version-2-event-weather-widget-and-api-with-hole-110-group-tracking).
 
+## Three-version ownership clarification
+
+The [canonical version roadmap](VERSION_ROADMAP.md) records the user's latest scope: **v1 single-shot data by hole/round/event; v2 statistics/rankings by player/group/event/course; v3 custom models and expected outcomes**. This inventory retains stable IDs for continuity; it is not a claim that every listed entity ships in v1. Version 2 and 3 own their additional metric/model entities in their respective roadmaps. The archived v1 release ref is unchanged.
+
 ## Status vocabulary
 
 - **Implemented:** present in the repository, with the limitations documented below.
@@ -47,7 +51,7 @@ Keys below are logical identity contracts, not a mandate to add database tables 
 | E17 | Annotation | Shot/dataset + annotation identity/version | User-confirmed units/putt classification, motion offsets, optional path, calibration and editing provenance | Session inputs/export implemented; durable saved sessions planned |
 | E18 | FetchJob / DatasetSnapshot | Job ID + explicit requested scope; child requests identify player-round | Scope, options, original/enriched data separation, progress, retries, unavailable/failed states and timestamps | Single player-round request implemented; resumable player/all-round and field/round jobs planned |
 | E19 | AnalysisResult | Input snapshot IDs + algorithm/version + parameters | Result, units, classification, sample size, coverage and validation basis | Putt calculations implemented; flight/green prototypes separate; field/outcome analysis planned |
-| E20 | FieldShotGroup | Event/round/hole/configuration + comparable shot filter | Member shot IDs, start/lie/club filters, endpoint/landing distinction and coverage | Required / planned: field spray charts and outcome zones |
+| E20 | FieldShotGroup | Event/round/hole/configuration + comparable shot filter | Member shot IDs, start/lie/club filters, endpoint/landing distinction and coverage | Version 2 / planned: descriptive field spray, ranks/percentiles and supported outcome zones; custom optimization/projection is version 3 |
 | E21 | GreenSurfaceEstimate | Course/hole/configuration + evidence set + model/version | Supported local elevations, slope estimates, uncertainty, coverage mask, independent validation | Research/planned; one or many simulated paths do not establish surveyed terrain |
 | E22 | PlayerClubTrajectoryGroup | Player + reliable club identity + explicit filters/frame | Driver/iron/etc. path groups, source club identity, shots and comparison alignment | Required / planned; unidentified clubs stay unidentified |
 | E23 | WeatherRecord | Provider/location + observation time, or forecast issueTime + validTime | Wind, gusts, temperature, precipitation etc. when supplied; units and location distance | Version 2 / planned (IVI-288); excluded from locked version 1 |
@@ -101,6 +105,7 @@ These are review questions derived from the existing documents. A confirmed requ
 | D16 | Does a baseline branch enforce protection? | No. Snapshot refs and module separation support comparison; remote protection rules remain unconfigured. | GitHub import notes; confirmed |
 | D17 | What is the Caddy Zone and where is it used? | A supported best-destination area plus preferred target derived from comparable field scatter, using >=90th quality percentile; add to the program hole map and later use versioned zones for grading/projections. | Current user requirement confirmed; E26, E20, E14 and E19. Field-wide calculation and map integration remain planned |
 | D18 | What is locked now, and when is weather built? | Freeze the current program as an as-is version 1 source snapshot. Weather widget/API and hole 1/10 group tracking move to version 2; known bugs and planned features retain their status. | Current user decision confirmed; see release inventory, V1_LOCK.md and IVI-288 |
+| D19 | What are the three version responsibilities? | V1 focuses on single-shot data by hole/round/event. V2 builds player/group/event/course statistics, rankings and comparisons. V3 builds custom models and expected-outcome projections from those versioned inputs. | Current user scope confirmed; see VERSION_ROADMAP.md, V2_ROADMAP.md and V3_ROADMAP.md. Frozen v1 source unchanged |
 
 ## Future RSS task
 

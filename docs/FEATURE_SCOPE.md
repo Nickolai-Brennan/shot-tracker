@@ -2,6 +2,18 @@
 
 Approved planning direction from the current project conversation; future items are not implemented by this snapshot. See [Version 1.0 entities and confirmed decisions](V1_PROGRAM_ENTITIES.md) for implementation status, answers and pending choices.
 
+## Version boundaries
+
+The latest user-defined version allocation is authoritative: [Version 1 → 2 → 3 roadmap](VERSION_ROADMAP.md).
+
+| Layer | Ownership |
+|---|---|
+| Version 1 | Individual shot acquisition, preservation, inspection and visualization, scoped by event/round/hole; current source remains frozen |
+| Version 2 | Player/group/event/course aggregates, scoring, OTT/approach/short game/putting/scrambling, rankings, leaderboards, contextual splits, earnings/points, field benchmarks and weather context |
+| Version 3 | Custom player/style/fame-proxy/course-fit/risk models, expected outcomes and projections |
+
+Existing rows below describe implementation status; use the version roadmaps for ownership. In particular, descriptive field percentile/Caddy Zone summaries are version 2, while custom optimal-target/grading/projection models are version 3.
+
 | Module | Existing foundation | Planned extension |
 |---|---|---|
 | Event collection | Event/participant/round selection, player-round pull and raw import | Tee times, player/all-round and field/round pulls, full-event jobs, retry/resume and coverage |
