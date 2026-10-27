@@ -2,14 +2,14 @@
 
 ## Layout and ownership
 
-| Program | Path | Own dependencies | Initial tag |
+| Program | Path | Own dependencies | Original offline snapshot tag |
 |---|---|---|---|
 | Shot Lab app | `apps/shot-lab` | Existing package.json and pnpm lockfile | `shot-lab/v6-baseline` |
 | Extractor | `tools/extractor` | Pinned upstream Git dependency in requirements.txt | `extractor/v0.1.0-baseline` |
 | Flight research | `prototypes/flight` | Separate Python environment | `flight/v0.1.0-baseline` |
 | Green-break research | `prototypes/green-break` | Separate Python environment | `green-break/v0.2.0-baseline` |
 
-Baseline tag: `baseline/2026-10-27`. Prototype tags describe repository snapshots, not a claim of published package versions. Original app commit and file hashes are in `baselines/source-manifest.json`.
+Uploaded baseline branch: `baseline/2026-10-27` (`65058362462e3c88d1ffb667944885fb7b3246fa`). The original offline tags below are not remote GitHub tags. Prototype tags describe repository snapshots, not a claim of published package versions. Original app commit and file hashes are in `baselines/source-manifest.json`.
 
 ## Branches
 
@@ -19,7 +19,7 @@ Baseline tag: `baseline/2026-10-27`. Prototype tags describe repository snapshot
 - `feature/green-break/field-coverage`: example future prototype branch.
 - `release/<program>/<version>`: optional stabilization branch before a module release.
 
-Folders isolate dependencies and builds; branches isolate changes. Neither prevents every regression. Preserve the baseline tag; require module checks and review before integrating.
+Folders isolate dependencies and builds; branches isolate changes. Neither prevents every regression. Preserve the baseline snapshot ref; require module checks and review before integrating.
 
 ```bash
 # Start one focused fix from the current reviewed state.
@@ -39,10 +39,11 @@ git worktree add ../tourcast-green -b feature/green-break/field-coverage main
 ## Baseline verification and rollback
 
 ```bash
-# Validate the preserved files at the immutable-by-convention baseline tag.
+# Validate the preserved files at the preserved baseline ref.
 python scripts/verify_baseline.py
 # Inspect without resetting or overwriting active work.
-git worktree add --detach ../tourcast-baseline baseline/2026-10-27
+git fetch origin
+git worktree add --detach ../tourcast-baseline origin/baseline/2026-10-27
 ```
 
 Do not use destructive reset commands to recover a program. Revert the specific reviewed commit through a new branch/PR, or inspect its module tag in a worktree. A Git rollback does not roll back a hosted deployment or external data.
@@ -65,18 +66,8 @@ GitHub workflows select the app or Python program paths independently. The app r
 4. Deploy only the selected app release through its hosting workflow when requested. Prototype/extractor releases do not publish the app.
 5. Keep exported data schema changes versioned and backward-compatible or provide an explicit migration.
 
-## Initial GitHub publishing
+## GitHub repository
 
-The repository is prepared locally with commit history and tags. The connected GitHub toolset lacks repository creation, and no GitHub CLI is installed in the authoring environment. Do not claim a remote exists until creation and upload succeed.
+The uploaded source is in `Nickolai-Brennan/shot-tracker`. The import branch preserves the original files and adds unpacked program directories. See `GITHUB_IMPORT.md` for the exact baseline ref and original source commit.
 
-On a computer with GitHub CLI installed and authenticated as the intended owner:
-
-```bash
-# Run inside this repository, only if this exact remote does not already exist.
-gh auth status
-gh repo create Nickolai-Brennan/tourcast-shot-data --private --source=. --remote=origin --push
-git push origin develop
-git push origin --tags
-```
-
-If a remote already exists, inspect its content before adding/pushing it. Do not force-push over existing work. GitHub CLI is needed only for this optional publishing route, not for running any program.
+Use normal Git branches and pull requests for subsequent changes. Original offline module tags have not been created remotely, and remote protection rules have not been configured. If release tags are added later, point them at reviewed commits and do not move existing references. No hosting deployment is triggered by these repository workflows.

@@ -1,4 +1,4 @@
-# tourcast-shot-data
+# shot-tracker
 
 Versioned workspace for TOURCAST Shot Lab, the Python extractor, and the flight and green-break research prototypes.
 
@@ -24,7 +24,7 @@ Versioned workspace for TOURCAST Shot Lab, the Python extractor, and the flight 
 
 The 143 tracked app files are copied byte-for-byte. Program runtime code has not been repaired or deployed as part of this preservation task. The app retains its original package version `0.1.0`; hosted version 6 is a separate version identifier. New repository tags do not claim a new hosted release.
 
-`baselines/source-manifest.json` records SHA-256 for 155 preserved program/input files. The `baseline/2026-10-27` tag identifies the initial preservation commit. Module tags identify the same initial snapshot independently. Tags are references, not enforced protection rules.
+`baselines/source-manifest.json` records SHA-256 for 155 preserved program/input files. The remote `baseline/2026-10-27` branch identifies the uploaded preservation snapshot (`65058362462e3c88d1ffb667944885fb7b3246fa`). Original module tags remain in the supplied offline Git bundle; they have not been created remotely. Snapshot branches are references, not enforced protection rules. See [GitHub import details](docs/GITHUB_IMPORT.md).
 
 ## Quick start: app
 
@@ -41,10 +41,14 @@ Portable development defaults to http://localhost:5173. Follow the terminal if a
 ## Validation
 
 ```bash
-# From the repository root: inspect the preserved tag, not evolving working files.
+# From the repository root: inspect the preserved baseline ref, not evolving working files.
 python scripts/verify_baseline.py
 # Optional: compare the current working copy against the original snapshot.
 python scripts/verify_baseline.py --working-tree
 ```
 
 Module commands, API limitations, independent environments, and known installation limits are documented in the setup guide. No GitHub deployment automation is configured.
+
+## Existing archive and placeholder
+
+The original `shot-tracker.zip`, `RESTORE.md` and root `index.html` remain in this repository. The placeholder page is not the Shot Lab app. Run the program in `apps/shot-lab` using the setup guide; the files are now unpacked and directly editable.

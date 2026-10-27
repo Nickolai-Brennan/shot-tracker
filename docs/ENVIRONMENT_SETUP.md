@@ -65,15 +65,15 @@ Official references:
 
 ## 4. Obtain and open the repository
 
-After GitHub publication succeeds:
+Clone the GitHub repository:
 
 ```bash
-git clone https://github.com/Nickolai-Brennan/tourcast-shot-data.git
-cd tourcast-shot-data
+git clone https://github.com/Nickolai-Brennan/shot-tracker.git
+cd shot-tracker
 code .
 ```
 
-Private GitHub cloning requires authentication through your normal Git credential flow. Never put a token in a remote URL or commit it to a file. If using the supplied archive before publication, extract it and open its `tourcast-shot-data` directory. A source ZIP alone does not contain Git tags/history; the companion Git bundle does.
+Private GitHub cloning requires authentication through your normal Git credential flow. Never put a token in a remote URL or commit it to a file. If using the supplied archive before publication, extract it and open its `tourcast-shot-data` directory. A source ZIP alone does not contain Git tags/history; the original offline companion Git bundle does. The uploaded repository has a baseline snapshot branch; see `GITHUB_IMPORT.md`.
 
 ## 5. Install the app dependencies
 

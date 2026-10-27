@@ -13,6 +13,21 @@ def main():
     root = Path(__file__).resolve().parents[1]
     baseline = "baseline/2026-10-27"
     try:
+        # A clean clone keeps snapshot branches under origin until checked out.
+        # Prefer the original local ref when restoring the offline bundle.
+        if not args.working_tree:
+            found = False
+            for candidate in (baseline, f"refs/remotes/origin/{baseline}"):
+                check = subprocess.run(
+                    ["git", "rev-parse", "--verify", f"{candidate}^{{commit}}"],
+                    cwd=root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+                )
+                if check.returncode == 0:
+                    baseline = candidate
+                    found = True
+                    break
+            if not found:
+                raise ValueError("Baseline ref unavailable; run git fetch origin --tags")
         # Read the authoritative manifest from the tag for historical verification.
         raw = (root / "baselines/source-manifest.json").read_bytes() if args.working_tree else subprocess.check_output(
             ["git", "show", f"{baseline}:baselines/source-manifest.json"], cwd=root
