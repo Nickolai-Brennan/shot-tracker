@@ -1,0 +1,491 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:shot-tracker:caddy-zone:1.0.0",
+  "title": "Caddy Zone",
+  "description": "Working E26 entity contract. Does not generate a zone, prove quality across its area, or prescribe geographic longitude/latitude coordinates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "zoneId",
+    "zoneVersion",
+    "createdAt",
+    "status",
+    "scope",
+    "coordinateFrame",
+    "positionBasis",
+    "quality",
+    "evidence",
+    "generation",
+    "geometry",
+    "preferredTarget",
+    "validation"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "zoneId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "zoneVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "insufficientData",
+        "uncalibrated",
+        "provisional",
+        "validated"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "courseId",
+        "layoutVersion",
+        "holeNumber",
+        "cohortId",
+        "eventIds",
+        "rounds",
+        "shotPhase"
+      ],
+      "properties": {
+        "courseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layoutVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "holeNumber": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 18
+        },
+        "cohortId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eventIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "rounds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "shotPhase": {
+          "type": "string",
+          "minLength": 1
+        },
+        "teeConfigurationId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pinConfigurationId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "filters": {
+          "type": "object"
+        }
+      }
+    },
+    "coordinateFrame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "units",
+        "axes",
+        "mapTransformRef"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "units": {
+          "enum": [
+            "m",
+            "ft",
+            "yd",
+            "mapNormalized",
+            "unknown"
+          ]
+        },
+        "axes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapTransformRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "positionBasis": {
+      "enum": [
+        "firstLanding",
+        "finalRest"
+      ]
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metricId",
+        "metricVersion",
+        "direction",
+        "evaluationBasis",
+        "minimumPercentile",
+        "rankMethod",
+        "scoreCutoff"
+      ],
+      "properties": {
+        "metricId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metricVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": [
+            "higherIsBetter",
+            "lowerIsBetter"
+          ]
+        },
+        "evaluationBasis": {
+          "enum": [
+            "reportedOutcome",
+            "retrospectiveOutcome",
+            "validatedPositionModel",
+            "researchModel"
+          ]
+        },
+        "minimumPercentile": {
+          "type": "number",
+          "minimum": 90,
+          "maximum": 100
+        },
+        "rankMethod": {
+          "const": "empiricalAverageRank"
+        },
+        "scoreCutoff": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Metric-scale cutoff; interpretation uses direction. Null until computed."
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshotIds",
+        "eligibleCount",
+        "qualifyingCount",
+        "excludedCount",
+        "distinctPlayerCount",
+        "qualifyingShotIds",
+        "coverageNote"
+      ],
+      "properties": {
+        "snapshotIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "eligibleCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "qualifyingCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "excludedCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "distinctPlayerCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "qualifyingShotIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "coverageNote": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "algorithmVersion",
+        "parameters",
+        "supportPolicyRef"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "algorithmVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "supportPolicyRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Versioned minimum-sample/spatial-support policy; null only before choosing a policy."
+        }
+      }
+    },
+    "geometry": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "polygons"
+          ],
+          "properties": {
+            "type": {
+              "const": "PlanarMultiPolygon"
+            },
+            "polygons": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/polygon"
+              },
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "preferredTarget": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "coordinates",
+            "regionIndex",
+            "method"
+          ],
+          "properties": {
+            "coordinates": {
+              "$ref": "#/$defs/point"
+            },
+            "regionIndex": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "method": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reasons",
+        "hazardConstraints",
+        "independentValidationRefs",
+        "uncertaintyNote"
+      ],
+      "properties": {
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hazardConstraints": {
+          "enum": [
+            "unknown",
+            "registeredNotApplied",
+            "applied"
+          ]
+        },
+        "hazardSourceRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "independentValidationRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "uncertaintyNote": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "ring": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/point"
+      },
+      "minItems": 4,
+      "description": "Closed ring in the declared planar frame. Closure/topology needs geometric validation outside JSON Schema."
+    },
+    "polygon": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ring"
+      },
+      "minItems": 1,
+      "description": "Exterior ring followed by excluded interior rings."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "provisional",
+              "validated"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "geometry": {
+            "type": "object"
+          },
+          "preferredTarget": {
+            "type": "object"
+          },
+          "quality": {
+            "properties": {
+              "scoreCutoff": {
+                "type": "number"
+              }
+            }
+          },
+          "generation": {
+            "properties": {
+              "supportPolicyRef": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "coordinateFrame": {
+            "properties": {
+              "units": {
+                "enum": [
+                  "m",
+                  "ft",
+                  "yd",
+                  "mapNormalized"
+                ]
+              },
+              "mapTransformRef": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "insufficientData",
+              "uncalibrated"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "geometry": {
+            "type": "null"
+          },
+          "preferredTarget": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

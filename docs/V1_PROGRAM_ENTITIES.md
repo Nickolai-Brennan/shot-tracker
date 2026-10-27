@@ -49,8 +49,13 @@ Keys below are logical identity contracts, not a mandate to add database tables 
 | E23 | WeatherRecord | Provider/location + observation time, or forecast issueTime + validTime | Wind, gusts, temperature, precipitation etc. when supplied; units and location distance | Required / planned; observations and forecast snapshots remain distinct |
 | E24 | ShotWeatherAssociation | Shot + WeatherRecord + matching method/version | True shot timestamp/source, temporal/spatial offset, interpolation and uncertainty | Required / planned; no substitution of publication or tee times as exact shot times |
 | E25 | Export / SavedSession | Dataset/session identity + schemaVersion | Scope, source/derived separation, annotations, calibration and provenance | CSV/JSON export implemented; session persistence and migration rules planned |
+| E26 | CaddyZone | Course/hole/configuration + FieldShotGroup + zone/version; links to AnalysisResult, snapshots and map calibration | Supported >=90th-quality-percentile region(s), preferred target, named metric/cohort, sample coverage, position basis, geometry and provenance; later grading/projection references | User-confirmed entity/feature requirement; computation and overlay planned. See [Caddy Zone contract](CADDY_ZONE.md) |
 | F01 | NewsFeed | Verified feed URL + source identity | RSS/Atom format, source verification, fetch status, ETag/Last-Modified and freshness | Future release: Linear IVI-287 |
 | F02 | NewsItem | NewsFeed + provider GUID or canonical URL | Title, article URL, supplied summary, published/updated/retrieved times, optional image/author and explicit entity links | Future release: Linear IVI-287; news is not shot/weather timing |
+
+## Caddy Zone contract
+
+[Caddy Zone definition, calculation and map requirements](CADDY_ZONE.md) · [machine-readable entity schema](../schemas/caddy-zone.schema.json). The percentile threshold and intended uses are confirmed; no real zone is computed without adequate field/outcome/coordinate evidence.
 
 ## Player headshot contract
 
@@ -81,7 +86,7 @@ These are review questions derived from the existing documents. A confirmed requ
 | D06 | Are flight, green and comparison diagrams part of the app? | They are required integrated views. Some are currently separate Python prototypes. Keep one selected-shot workflow and distinguish endpoint connector, flight, roll and putt. | User requirement; integration planned |
 | D07 | Can we infer the whole green from putting trails? | Trails support route coverage and conditional local estimates; they do not establish independently surveyed terrain. Preserve simulated provenance and unknown areas. | Existing source classification and prior comparison; confirmed limitation |
 | D08 | Does TOURCAST comparison validate real slope? | Shared-source replay tests decoding/rendering consistency. Independent slope/prediction validation needs independent evidence. | Existing prototype/report; confirmed limitation |
-| D09 | What does the top 10% field zone mean? | A selected outcome metric with comparable starts/conditions and sample sizes. It is not automatically the longest or densest area. | Feature Scope; exact default ranking metric pending user confirmation |
+| D09 | What does the top 10% field zone mean? | The Caddy Zone uses shot/location quality at the 90th percentile or better within a comparable field cohort. Quality metric and support policy must be explicit; longest/densest is not an automatic substitute. | User confirmed name and cutoff; default metric and statistical support remain pending |
 | D10 | Are tee times and shot times interchangeable? | No. Retain scheduled group time separately from a verified actual shot timestamp. Video publication/availability also remains separate. | Guide + user requirements; confirmed |
 | D11 | Are forecast and observed conditions interchangeable? | No. Preserve forecast issue/valid times and observations, plus matching offsets/uncertainty. | User weather requirement and Feature Scope; provider/cadence pending |
 | D12 | Are clubs inferred from distance? | No. Use reliable club identity or explicit annotation; retain an unknown group. | Feature Scope; confirmed limitation |
@@ -89,6 +94,7 @@ These are review questions derived from the existing documents. A confirmed requ
 | D14 | Should PGA TOUR RSS be in version 1.0? | No. Add fetchable news ingestion to a future release, tracked as IVI-287. Release number and feed endpoint are not yet confirmed. | Current user request; task created |
 | D15 | Is video playback fixed? | No. All 37 fixture share URLs are null; posters are not playable video. BUG-001 stays open. | Fixture audit/Bug Register; confirmed |
 | D16 | Does a baseline branch enforce protection? | No. Snapshot refs and module separation support comparison; remote protection rules remain unconfigured. | GitHub import notes; confirmed |
+| D17 | What is the Caddy Zone and where is it used? | A supported best-destination area plus preferred target derived from comparable field scatter, using >=90th quality percentile; add to the program hole map and later use versioned zones for grading/projections. | Current user requirement confirmed; E26, E20, E14 and E19. Field-wide calculation and map integration remain planned |
 
 ## Future RSS task
 
