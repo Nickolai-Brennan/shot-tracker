@@ -67,6 +67,18 @@ If high-quality point clusters exist without sufficient evidence for an area, di
 - On missing field coverage, inadequate support or missing registration, provide the reason and omit the unsupported polygon.
 - Use a legend and distinct boundary/marker shapes as well as color. Source samples remain inspectable.
 
+## Confirmed appearance
+
+Bright green translucent fill is the user-confirmed visual direction. The initial implementation uses `#39ff14` at **24% fill opacity** (76% transparency), an almost opaque bright green boundary, and a dark edge halo to distinguish the shape from green fairway turf. The exact opacity/line widths are engineering defaults and can be tuned without changing zone geometry or quality.
+
+- Keep opacity on the **fill**, not the entire SVG group, so the boundary and target remain readable.
+- Render the layer above the turf image and below shot paths/markers. Do not blur or replace the map image.
+- Use even-odd filling for excluded interior rings. Keep unrelated shot-marker click/keyboard behavior available.
+- Use `CaddyZoneLayer` with polygons already transformed into the map SVG's verified frame; this presentational component does not calculate/validate a field zone or calibrate a map.
+- The standalone [style preview](../examples/caddy-zone-style.html) uses the provider hole-14 map with an explicitly **illustrative** area. It is not a computed or approved shot target.
+
+The CSS tokens and reusable SVG layer are implemented; live field-zone generation and mounting the layer in the explorer still require the existing data/registration prerequisites. The original entity implementation status remains applicable.
+
 ## Later shot grading
 
 A later grade should combine location quality percentile, inside/outside or distance-to-zone, lie/hazard result, and player/context suitability where supported. Merely landing inside a polygon is not proof of a 90+ grade or a guaranteed good next shot.

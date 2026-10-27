@@ -1,0 +1,46 @@
+/* Bright, translucent turf overlay. Opacity applies to fill only, not its outline. */
+:root {
+  --caddy-zone-color: #39ff14;
+  --caddy-zone-fill-opacity: 0.24;
+  --caddy-zone-outline: #65ff42;
+  --caddy-zone-halo: #062b17;
+}
+.caddy-zone-layer { pointer-events: none; }
+.caddy-zone-halo {
+  fill: none;
+  stroke: var(--caddy-zone-halo);
+  stroke-opacity: 0.85;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.caddy-zone-area {
+  fill: var(--caddy-zone-color);
+  fill-opacity: var(--caddy-zone-fill-opacity);
+  fill-rule: evenodd;
+  stroke: var(--caddy-zone-outline);
+  stroke-opacity: 0.98;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.caddy-zone-target-ring {
+  fill: none;
+  stroke: #f5fff0;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.caddy-zone-target {
+  fill: var(--caddy-zone-color);
+  stroke: var(--caddy-zone-halo);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.caddy-zone-label {
+  fill: #f5fff0;
+  stroke: var(--caddy-zone-halo);
+  stroke-width: 4;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+  font: 600 15px Arial, sans-serif;
+}
