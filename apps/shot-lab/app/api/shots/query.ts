@@ -1,0 +1,1 @@
+export const query = "query shotDetailsV4Compressed($tournamentId: ID!, $playerId: ID!, $round: Int!, $includeRadar: Boolean) {\n  shotDetailsV4Compressed(tournamentId: $tournamentId, playerId: $playerId, round: $round, includeRadar: $includeRadar) {\n    id\n    payload\n  }\n}\n";

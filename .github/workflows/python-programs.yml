@@ -1,0 +1,22 @@
+name: Python program checks
+on:
+  push:
+    paths: ['tools/**', 'prototypes/**', 'scripts/**', '.github/workflows/python-programs.yml']
+  pull_request:
+    paths: ['tools/**', 'prototypes/**', 'scripts/**', '.github/workflows/python-programs.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        program: ['tools/extractor', 'prototypes/flight', 'prototypes/green-break', 'scripts']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # This is a syntax check; it does not claim live extraction or rendering.
+      - run: python -m compileall -q "${{ matrix.program }}"

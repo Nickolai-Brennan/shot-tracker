@@ -1,0 +1,17 @@
+import {readFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+import ts from 'typescript';
+const source=ts.transpileModule(readFileSync('app/shot-metrics.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {metrics,metricValue,shotPoint,trajectory}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+const m=id=>metrics.find(m=>m.id===id);
+assert.equal(metricValue({'radar.spinRate':0},m('spin')).value,'0');
+assert.equal(metricValue({'radar.spinRate.value':2500,'radar.spinRate.unit':'rpm'},m('spin')).value,'2500 rpm');
+assert.equal(metricValue({distance:300},m('carry')).kind,'Unavailable');
+assert.equal(metricValue({strokeType:'PUTT',distance:12},m('putt')).value,'12');
+assert.equal(metricValue({distance:12},m('break')).kind,'Unavailable');
+assert.equal(metricValue({'radar.spinRate':null},m('spin')).kind,'Unavailable');
+assert.equal(shotPoint({'overview.leftToRightCoords.toCoords.x':null,'overview.leftToRightCoords.toCoords.y':0},'to'),null);
+assert.deepEqual(shotPoint({'overview.leftToRightCoords.toCoords.x':0,'overview.leftToRightCoords.toCoords.y':0},'to'),{x:0,y:0});
+assert.deepEqual(trajectory({trajectory:'[{"x":0,"y":0,"z":0},{"x":10,"y":0,"z":4}]'}),[{x:0,y:0,z:0},{x:10,y:0,z:4}]);
+assert.deepEqual(trajectory({trajectory:'[{"x":0,"y":0},{"x":10,"y":0}]'}),[]);
+console.log('Passed: explicit radar units, zero/null handling, no inferred carry/break, putting distance, source coordinates, measured-only trajectory.');
