@@ -5,6 +5,7 @@ Versioned workspace for TOURCAST Shot Lab, the Python extractor, and the flight 
 ## Start here
 
 - [Version 1.0 entities and confirmed decisions](docs/V1_PROGRAM_ENTITIES.md)
+- [Caddy Zone: top-decile destination regions](docs/CADDY_ZONE.md)
 
 - [Environment, extensions, installation and running](docs/ENVIRONMENT_SETUP.md)
 - [Bug register and acceptance criteria](docs/BUG_REGISTER.md)
