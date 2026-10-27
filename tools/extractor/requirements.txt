@@ -1,0 +1,2 @@
+git+https://github.com/WalrusQuant/pgatourPY.git@1aba86d23c3ec97502f578af94736db07144afbe
+httpx[socks]

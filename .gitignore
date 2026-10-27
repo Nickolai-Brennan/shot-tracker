@@ -1,0 +1,20 @@
+# Each program owns its dependencies and build output.
+**/node_modules/
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/.env*
+!**/.env.example
+**/.dev.vars*
+**/.sites-runtime/
+**/.wrangler/
+**/dist/
+**/.next/
+**/.vinext/
+**/out/
+**/*.tsbuildinfo
+**/next-env.d.ts
+**/data/
+outputs/
+*.bundle
+.DS_Store

@@ -1,0 +1,28 @@
+name: Shot Lab checks
+on:
+  push:
+    paths: ['apps/shot-lab/**', '.github/workflows/shot-lab.yml']
+  pull_request:
+    paths: ['apps/shot-lab/**', '.github/workflows/shot-lab.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/shot-lab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile
+      - run: node tests/data.test.mjs
+      - run: node tests/metrics.test.mjs
+      - run: node tests/scoring-catalog.test.mjs
+      - run: node tests/video-putt.test.mjs
+      - run: pnpm build
+      - run: pnpm exec tsc --noEmit
