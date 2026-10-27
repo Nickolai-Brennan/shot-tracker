@@ -8,6 +8,10 @@ This is the working version 1.0 entity specification and the place to record con
 
 **Version 1.0 here names the target specification, not a shipped release.** The preserved hosted app is saved version 6; its package version is still 0.1.0. A feature may belong in the entity model while its implementation is still planned. No package bump, release tag, database migration or hosted deployment is implied.
 
+## Version 1 source lock and version 2 weather deferral
+
+The current program source is frozen as an **as-is version 1 snapshot**, with limitations preserved. See [Version 1 lock](releases/V1_LOCK.md) and [Version 2 roadmap](V2_ROADMAP.md). This entity model includes planned capabilities; freezing source does not make them implemented. Weather widget/API/checkpoint work is explicitly version 2 under [IVI-288](https://linear.app/nthezone/issue/IVI-288/version-2-event-weather-widget-and-api-with-hole-110-group-tracking).
+
 ## Status vocabulary
 
 - **Implemented:** present in the repository, with the limitations documented below.
@@ -46,10 +50,11 @@ Keys below are logical identity contracts, not a mandate to add database tables 
 | E20 | FieldShotGroup | Event/round/hole/configuration + comparable shot filter | Member shot IDs, start/lie/club filters, endpoint/landing distinction and coverage | Required / planned: field spray charts and outcome zones |
 | E21 | GreenSurfaceEstimate | Course/hole/configuration + evidence set + model/version | Supported local elevations, slope estimates, uncertainty, coverage mask, independent validation | Research/planned; one or many simulated paths do not establish surveyed terrain |
 | E22 | PlayerClubTrajectoryGroup | Player + reliable club identity + explicit filters/frame | Driver/iron/etc. path groups, source club identity, shots and comparison alignment | Required / planned; unidentified clubs stay unidentified |
-| E23 | WeatherRecord | Provider/location + observation time, or forecast issueTime + validTime | Wind, gusts, temperature, precipitation etc. when supplied; units and location distance | Required / planned; observations and forecast snapshots remain distinct |
-| E24 | ShotWeatherAssociation | Shot + WeatherRecord + matching method/version | True shot timestamp/source, temporal/spatial offset, interpolation and uncertainty | Required / planned; no substitution of publication or tee times as exact shot times |
+| E23 | WeatherRecord | Provider/location + observation time, or forecast issueTime + validTime | Wind, gusts, temperature, precipitation etc. when supplied; units and location distance | Version 2 / planned (IVI-288); excluded from locked version 1 |
+| E24 | ShotWeatherAssociation | Shot + WeatherRecord + matching method/version | True shot timestamp/source, temporal/spatial offset, interpolation and uncertainty | Version 2 / planned (IVI-288); no substitution of publication/tee times as exact shot times |
 | E25 | Export / SavedSession | Dataset/session identity + schemaVersion | Scope, source/derived separation, annotations, calibration and provenance | CSV/JSON export implemented; session persistence and migration rules planned |
 | E26 | CaddyZone | Course/hole/configuration + FieldShotGroup + zone/version; links to AnalysisResult, snapshots and map calibration | Supported >=90th-quality-percentile region(s), preferred target, named metric/cohort, sample coverage, position basis, geometry and provenance; later grading/projection references | User-confirmed entity/feature requirement; computation and overlay planned. See [Caddy Zone contract](CADDY_ZONE.md) |
+| F03 | GroupWeatherCheckpoint | Event + round + group + checkpoint hole (1 or 10) + time basis/version | Player IDs, scheduled/actual/explicitly estimated checkpoint time, weather reference, valid time and matching offset | Version 2 / planned (IVI-288); missing checkpoint time stays unavailable |
 | F01 | NewsFeed | Verified feed URL + source identity | RSS/Atom format, source verification, fetch status, ETag/Last-Modified and freshness | Future release: Linear IVI-287 |
 | F02 | NewsItem | NewsFeed + provider GUID or canonical URL | Title, article URL, supplied summary, published/updated/retrieved times, optional image/author and explicit entity links | Future release: Linear IVI-287; news is not shot/weather timing |
 
@@ -88,13 +93,14 @@ These are review questions derived from the existing documents. A confirmed requ
 | D08 | Does TOURCAST comparison validate real slope? | Shared-source replay tests decoding/rendering consistency. Independent slope/prediction validation needs independent evidence. | Existing prototype/report; confirmed limitation |
 | D09 | What does the top 10% field zone mean? | The Caddy Zone uses shot/location quality at the 90th percentile or better within a comparable field cohort. Quality metric and support policy must be explicit; longest/densest is not an automatic substitute. | User confirmed name and cutoff; default metric and statistical support remain pending |
 | D10 | Are tee times and shot times interchangeable? | No. Retain scheduled group time separately from a verified actual shot timestamp. Video publication/availability also remains separate. | Guide + user requirements; confirmed |
-| D11 | Are forecast and observed conditions interchangeable? | No. Preserve forecast issue/valid times and observations, plus matching offsets/uncertainty. | User weather requirement and Feature Scope; provider/cadence pending |
+| D11 | Are forecast and observed conditions interchangeable? | No. Preserve forecast issue/valid times and observations, plus matching offsets/uncertainty. Weather widget/API and group checkpoint tracking are deferred to version 2. | User confirmed deferral; IVI-288; provider/cadence pending |
 | D12 | Are clubs inferred from distance? | No. Use reliable club identity or explicit annotation; retain an unknown group. | Feature Scope; confirmed limitation |
 | D13 | Can we store a headshot URL for future UI use? | Yes. Add optional nullable source URL/provenance to Player/Participant metadata, without forcing display or inventing links. | Current user request; retention adapter implemented in this change |
 | D14 | Should PGA TOUR RSS be in version 1.0? | No. Add fetchable news ingestion to a future release, tracked as IVI-287. Release number and feed endpoint are not yet confirmed. | Current user request; task created |
 | D15 | Is video playback fixed? | No. All 37 fixture share URLs are null; posters are not playable video. BUG-001 stays open. | Fixture audit/Bug Register; confirmed |
 | D16 | Does a baseline branch enforce protection? | No. Snapshot refs and module separation support comparison; remote protection rules remain unconfigured. | GitHub import notes; confirmed |
 | D17 | What is the Caddy Zone and where is it used? | A supported best-destination area plus preferred target derived from comparable field scatter, using >=90th quality percentile; add to the program hole map and later use versioned zones for grading/projections. | Current user requirement confirmed; E26, E20, E14 and E19. Field-wide calculation and map integration remain planned |
+| D18 | What is locked now, and when is weather built? | Freeze the current program as an as-is version 1 source snapshot. Weather widget/API and hole 1/10 group tracking move to version 2; known bugs and planned features retain their status. | Current user decision confirmed; see release inventory, V1_LOCK.md and IVI-288 |
 
 ## Future RSS task
 

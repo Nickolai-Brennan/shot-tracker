@@ -11,7 +11,7 @@ Approved planning direction from the current project conversation; future items 
 | Comparison | Qualitative source-image comparison | Calibrated rendering comparison; independent prediction only with a validated model |
 | Field analysis / Caddy Zone | Participant roster; E26 entity/schema defined | Field scatter and supported >=90th-quality-percentile destination region(s), preferred target, hole-map overlay; later versioned shot grading and projections. See [Caddy Zone](CADDY_ZONE.md) |
 | Player analysis | Selected player-round; nullable source headshot URL/provenance retention | Player details and separate 3D trajectory groups for driver and each reliably identified club |
-| Weather | No integrated tracker | Forecast issue/valid times, observations, true shot-time association, matching uncertainty |
+| Weather — version 2 | Deferred; excluded from locked version 1 | Event/location widget, first-tee weather and hole 1/10 player-group checkpoint associations; [IVI-288](https://linear.app/nthezone/issue/IVI-288/version-2-event-weather-widget-and-api-with-hole-110-group-tracking) |
 | Durability | Manual JSON/CSV exports | Saved sessions, versioned schemas and provenance |
 | PGA TOUR news | No RSS ingestion yet | Future-release verified RSS/Atom fetch and normalized items: [IVI-287](https://linear.app/nthezone/issue/IVI-287/future-release-fetch-and-normalize-pga-tour-rss-news) |
 
@@ -26,3 +26,7 @@ Tee times are scheduled group starts, not per-shot timestamps. Historical observ
 Carry, reported total, derived distance differences and measured ground paths remain separate. Do not infer a roll trajectory from endpoints or classify clubs solely by shot distance.
 
 Implementation order: correctness and video investigation; integrated flight/green views; persistent bulk collection; field analysis; player/conditions views; independently validated surface research.
+
+## Version lock
+
+Version 1 is an as-is source snapshot, not a completion claim for all planned features. See [version 1 lock](releases/V1_LOCK.md). Weather is explicitly version 2; see [version 2 roadmap](V2_ROADMAP.md). No weather code was introduced before this deferral.

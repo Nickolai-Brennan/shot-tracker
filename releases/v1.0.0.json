@@ -1,0 +1,963 @@
+{
+  "release": "v1.0.0",
+  "kind": "source-snapshot",
+  "date": "2026-10-27",
+  "releaseBranch": "release/v1.0.0",
+  "programSourceCommit": "0ef7c8a00bf9610d5ba135f84c42ca2b185e38d3",
+  "hostedAppBaselineVersion": 6,
+  "packageVersion": "0.1.0",
+  "featureComplete": false,
+  "weatherIncluded": false,
+  "weatherTargetVersion": "2",
+  "notes": "Version 1 freezes the current source as-is, including documented bugs and planned features. A branch is not enforced protection; the commit and blob inventory identify fixed content.",
+  "files": [
+    {
+      "path": "apps/shot-lab/.gitignore",
+      "mode": "100644",
+      "gitBlobSha": "0ef03ed1ae8b17716270e6ba7d6b628b66eaceb1",
+      "size": 614
+    },
+    {
+      "path": "apps/shot-lab/.npmrc",
+      "mode": "100644",
+      "gitBlobSha": "9f274d6425b9792ae0a70cb0b96a29fd98ec6ed6",
+      "size": 45
+    },
+    {
+      "path": "apps/shot-lab/.openai/hosting.json",
+      "mode": "100644",
+      "gitBlobSha": "c47ca3ce941aa827424c94e88901782778a8bd01",
+      "size": 91
+    },
+    {
+      "path": "apps/shot-lab/README.md",
+      "mode": "100644",
+      "gitBlobSha": "75da3f88ea141610d5879d732a4b2198e5cffc28",
+      "size": 9903
+    },
+    {
+      "path": "apps/shot-lab/app/api/catalog/route.ts",
+      "mode": "100644",
+      "gitBlobSha": "dbcdc22717d93b0ed644e87f5ff15a3aac28a1ee",
+      "size": 1693
+    },
+    {
+      "path": "apps/shot-lab/app/api/participants/route.ts",
+      "mode": "100644",
+      "gitBlobSha": "789c53119d58ef631b9c7bb651b71c1524e39879",
+      "size": 2024
+    },
+    {
+      "path": "apps/shot-lab/app/api/putt-analysis/route.ts",
+      "mode": "100644",
+      "gitBlobSha": "6d4136f3fcb694f17dd725ffb789b786356334e9",
+      "size": 868
+    },
+    {
+      "path": "apps/shot-lab/app/api/shots/query.ts",
+      "mode": "100644",
+      "gitBlobSha": "84dcfb5309b6e45b07bf471e777518e16c092ce5",
+      "size": 284
+    },
+    {
+      "path": "apps/shot-lab/app/api/shots/route.ts",
+      "mode": "100644",
+      "gitBlobSha": "e5aaf1190da89e89f29d3e5ed04279eb1229ea94",
+      "size": 5016
+    },
+    {
+      "path": "apps/shot-lab/app/api/status/route.ts",
+      "mode": "100644",
+      "gitBlobSha": "1f76102e401ae365a8af391cf6a4321eedb558b6",
+      "size": 129
+    },
+    {
+      "path": "apps/shot-lab/app/api/tourcast-shot-video/client.ts",
+      "mode": "100644",
+      "gitBlobSha": "beb24e2c1919585b1569030911e691af48b74be7",
+      "size": 1430
+    },
+    {
+      "path": "apps/shot-lab/app/api/tourcast-shot-video/query.ts",
+      "mode": "100644",
+      "gitBlobSha": "906554f6a41484d2ff32f004176326fbb3e153e8",
+      "size": 715
+    },
+    {
+      "path": "apps/shot-lab/app/api/tourcast-shot-video/route.ts",
+      "mode": "100644",
+      "gitBlobSha": "56f923460af5a29acbff11985386f341bbe543cd",
+      "size": 1043
+    },
+    {
+      "path": "apps/shot-lab/app/caddy-zone-layer.tsx",
+      "mode": "100644",
+      "gitBlobSha": "a6fb8d833099df0f79338592e079928b9cb066c1",
+      "size": 2126
+    },
+    {
+      "path": "apps/shot-lab/app/caddy-zone.css",
+      "mode": "100644",
+      "gitBlobSha": "3aea817c65498f9f8e87d4fbf85e529d25c85564",
+      "size": 1159
+    },
+    {
+      "path": "apps/shot-lab/app/catalog-data.ts",
+      "mode": "100644",
+      "gitBlobSha": "1f8a4fb23e348f6aa5cbc5e32de7741854e78776",
+      "size": 2932
+    },
+    {
+      "path": "apps/shot-lab/app/chatgpt-auth.ts",
+      "mode": "100644",
+      "gitBlobSha": "a0ae2ed9a9771b5fc36a06af554a05c18b2a13b3",
+      "size": 2550
+    },
+    {
+      "path": "apps/shot-lab/app/data.ts",
+      "mode": "100644",
+      "gitBlobSha": "40f78095666dc942e514199e83e94e221936fdd9",
+      "size": 1426
+    },
+    {
+      "path": "apps/shot-lab/app/globals.css",
+      "mode": "100644",
+      "gitBlobSha": "ccc0951f2f6d01cf4fd6df7d3980a30939c108aa",
+      "size": 14916
+    },
+    {
+      "path": "apps/shot-lab/app/layout.tsx",
+      "mode": "100644",
+      "gitBlobSha": "642c47ef61429a420d37be096c27df300d19fbc1",
+      "size": 323
+    },
+    {
+      "path": "apps/shot-lab/app/lookups.json",
+      "mode": "100644",
+      "gitBlobSha": "e415ef8911cf60a0d7ace7ed1c6322b6951498b0",
+      "size": 23105
+    },
+    {
+      "path": "apps/shot-lab/app/page.tsx",
+      "mode": "100644",
+      "gitBlobSha": "ae5370b149425bf5b0fa430a88c5473c25d6e36c",
+      "size": 15192
+    },
+    {
+      "path": "apps/shot-lab/app/score-panel.tsx",
+      "mode": "100644",
+      "gitBlobSha": "e6810ab1314acbdaff4b23e6d9355029a74e5352",
+      "size": 2134
+    },
+    {
+      "path": "apps/shot-lab/app/scoring.ts",
+      "mode": "100644",
+      "gitBlobSha": "922aff61bb8ccd3dd02230e6d3493779ff1db4d7",
+      "size": 3245
+    },
+    {
+      "path": "apps/shot-lab/app/shot-explorer.tsx",
+      "mode": "100644",
+      "gitBlobSha": "27f0119bf0fc3ba55ad6f32b26105add6346568b",
+      "size": 8897
+    },
+    {
+      "path": "apps/shot-lab/app/shot-metrics.ts",
+      "mode": "100644",
+      "gitBlobSha": "c59348fb679b3aaafdff5327b07b57ac49b77826",
+      "size": 3481
+    },
+    {
+      "path": "apps/shot-lab/app/shot-video-panel.tsx",
+      "mode": "100644",
+      "gitBlobSha": "8e5447494744b31ef9fa4271b4b2e8edb98aa538",
+      "size": 6100
+    },
+    {
+      "path": "apps/shot-lab/app/shot-video.ts",
+      "mode": "100644",
+      "gitBlobSha": "69590edaeddc70d7de17b1a38fc295bff46232e9",
+      "size": 7393
+    },
+    {
+      "path": "apps/shot-lab/cloudflare-env.d.ts",
+      "mode": "100644",
+      "gitBlobSha": "856e090c902917b4e1cebee0e08ea1d398fd01c3",
+      "size": 99
+    },
+    {
+      "path": "apps/shot-lab/components.json",
+      "mode": "100644",
+      "gitBlobSha": "c8f5bb16f79ed774f67415a8dc2b4a38243e3e90",
+      "size": 420
+    },
+    {
+      "path": "apps/shot-lab/components/connector-error.tsx",
+      "mode": "100644",
+      "gitBlobSha": "3c994dc58811e4b02250092fec54b0b788edcc2c",
+      "size": 1082
+    },
+    {
+      "path": "apps/shot-lab/components/ui/accordion.tsx",
+      "mode": "100644",
+      "gitBlobSha": "91e3a250ce6ee0797b0258454d774800650adcc8",
+      "size": 2048
+    },
+    {
+      "path": "apps/shot-lab/components/ui/alert-dialog.tsx",
+      "mode": "100644",
+      "gitBlobSha": "dad327341382f200b84d5f833eb1b7a74b0e7469",
+      "size": 5439
+    },
+    {
+      "path": "apps/shot-lab/components/ui/alert.tsx",
+      "mode": "100644",
+      "gitBlobSha": "f99164ed4b320790482f514342dab5e72f284aca",
+      "size": 1614
+    },
+    {
+      "path": "apps/shot-lab/components/ui/aspect-ratio.tsx",
+      "mode": "100644",
+      "gitBlobSha": "57e38fa96f9c0cb767d7b8de0d6dbc171d1b921a",
+      "size": 274
+    },
+    {
+      "path": "apps/shot-lab/components/ui/attachment.tsx",
+      "mode": "100644",
+      "gitBlobSha": "5bdd1ce7db5800eb55198cd0291a1e47dc67fb0d",
+      "size": 6002
+    },
+    {
+      "path": "apps/shot-lab/components/ui/avatar.tsx",
+      "mode": "100644",
+      "gitBlobSha": "ea658505703a577fe93341e5e1a0b478c27245f7",
+      "size": 2916
+    },
+    {
+      "path": "apps/shot-lab/components/ui/badge.tsx",
+      "mode": "100644",
+      "gitBlobSha": "6eb2a057aae0e23a74368cc4daf9657210e9a740",
+      "size": 1776
+    },
+    {
+      "path": "apps/shot-lab/components/ui/breadcrumb.tsx",
+      "mode": "100644",
+      "gitBlobSha": "004bb63a4c92229e612b6126d79fb7b078aa7565",
+      "size": 2350
+    },
+    {
+      "path": "apps/shot-lab/components/ui/bubble.tsx",
+      "mode": "100644",
+      "gitBlobSha": "792146e61d80ef595d032d5d09a3d572d50f1374",
+      "size": 4699
+    },
+    {
+      "path": "apps/shot-lab/components/ui/button-group.tsx",
+      "mode": "100644",
+      "gitBlobSha": "cd550d7afca6562548afe3f595b352406f7f3951",
+      "size": 2202
+    },
+    {
+      "path": "apps/shot-lab/components/ui/button.tsx",
+      "mode": "100644",
+      "gitBlobSha": "4d38506cee5430d95a59ec6a2a0cef2b79217e7a",
+      "size": 2392
+    },
+    {
+      "path": "apps/shot-lab/components/ui/calendar.tsx",
+      "mode": "100644",
+      "gitBlobSha": "5d31419b130a18c52320f5a21546a9236123b6bf",
+      "size": 7832
+    },
+    {
+      "path": "apps/shot-lab/components/ui/card.tsx",
+      "mode": "100644",
+      "gitBlobSha": "acf57dc5a534792273b8fb86227e92e001f3dc53",
+      "size": 1987
+    },
+    {
+      "path": "apps/shot-lab/components/ui/carousel.tsx",
+      "mode": "100644",
+      "gitBlobSha": "0e05a77ea155fde6af5d9a4848b1d3953df6ea5a",
+      "size": 5556
+    },
+    {
+      "path": "apps/shot-lab/components/ui/chart.tsx",
+      "mode": "100644",
+      "gitBlobSha": "9813c584e125847d88e9e7e7f9edff7e9ba45a97",
+      "size": 10614
+    },
+    {
+      "path": "apps/shot-lab/components/ui/checkbox.tsx",
+      "mode": "100644",
+      "gitBlobSha": "f5a7e433f3795b82a00c5c06a1fc6decf116a84a",
+      "size": 1214
+    },
+    {
+      "path": "apps/shot-lab/components/ui/collapsible.tsx",
+      "mode": "100644",
+      "gitBlobSha": "2f7a4e7fc64a8874373c1584646a63f28cd63c47",
+      "size": 795
+    },
+    {
+      "path": "apps/shot-lab/components/ui/combobox.tsx",
+      "mode": "100644",
+      "gitBlobSha": "2415bd801031a16bbcee8343058825feecfaea69",
+      "size": 9158
+    },
+    {
+      "path": "apps/shot-lab/components/ui/command.tsx",
+      "mode": "100644",
+      "gitBlobSha": "8fe3ccb406be52d28961b0c0220e87ecd19596ca",
+      "size": 4818
+    },
+    {
+      "path": "apps/shot-lab/components/ui/context-menu.tsx",
+      "mode": "100644",
+      "gitBlobSha": "5aaca76552cf0468b1def03c9e2c42f1f0b60734",
+      "size": 8268
+    },
+    {
+      "path": "apps/shot-lab/components/ui/dialog.tsx",
+      "mode": "100644",
+      "gitBlobSha": "84bdef4bb307087da1bfaf3cadf7be5dbda73f24",
+      "size": 4303
+    },
+    {
+      "path": "apps/shot-lab/components/ui/direction.tsx",
+      "mode": "100644",
+      "gitBlobSha": "22e165774bd595fbf41d0c45efef1cf996897983",
+      "size": 506
+    },
+    {
+      "path": "apps/shot-lab/components/ui/drawer.tsx",
+      "mode": "100644",
+      "gitBlobSha": "ad08671442203fe345093f364696bdf43528e0b7",
+      "size": 4255
+    },
+    {
+      "path": "apps/shot-lab/components/ui/dropdown-menu.tsx",
+      "mode": "100644",
+      "gitBlobSha": "ae1fcf62f1e3b648554789b8fe02943d92bf00fc",
+      "size": 8418
+    },
+    {
+      "path": "apps/shot-lab/components/ui/empty.tsx",
+      "mode": "100644",
+      "gitBlobSha": "ce4b0095f6d19d2eae2e465060e9060b0c210856",
+      "size": 2396
+    },
+    {
+      "path": "apps/shot-lab/components/ui/field.tsx",
+      "mode": "100644",
+      "gitBlobSha": "ec849dae4d3dd06a973ba22e4b2248a25cf18148",
+      "size": 6159
+    },
+    {
+      "path": "apps/shot-lab/components/ui/form.tsx",
+      "mode": "100644",
+      "gitBlobSha": "f371fea1bc35380d28678c6cf53df8f65deb2776",
+      "size": 3757
+    },
+    {
+      "path": "apps/shot-lab/components/ui/hover-card.tsx",
+      "mode": "100644",
+      "gitBlobSha": "91e869c0d3091cbeddf5cb0266e82ddf56f829a6",
+      "size": 1526
+    },
+    {
+      "path": "apps/shot-lab/components/ui/input-group.tsx",
+      "mode": "100644",
+      "gitBlobSha": "a7652d936fffd9c5bca4b88e6b9715bf559e667d",
+      "size": 5065
+    },
+    {
+      "path": "apps/shot-lab/components/ui/input-otp.tsx",
+      "mode": "100644",
+      "gitBlobSha": "6a556afacd71996bf0e385ff2b04869fb2ee4523",
+      "size": 2254
+    },
+    {
+      "path": "apps/shot-lab/components/ui/input.tsx",
+      "mode": "100644",
+      "gitBlobSha": "f1124aea14eee062fc2f4c55dad5f0d9de0ccc1a",
+      "size": 962
+    },
+    {
+      "path": "apps/shot-lab/components/ui/item.tsx",
+      "mode": "100644",
+      "gitBlobSha": "d5dbb1a9c2e70456e45a39887a4b7cc56d484a45",
+      "size": 4486
+    },
+    {
+      "path": "apps/shot-lab/components/ui/kbd.tsx",
+      "mode": "100644",
+      "gitBlobSha": "2459224fbc531f6306b73aaeb22e9022d9985332",
+      "size": 862
+    },
+    {
+      "path": "apps/shot-lab/components/ui/label.tsx",
+      "mode": "100644",
+      "gitBlobSha": "1ac80f701ebfe9dc02d632c08cafade732e46625",
+      "size": 606
+    },
+    {
+      "path": "apps/shot-lab/components/ui/marker.tsx",
+      "mode": "100644",
+      "gitBlobSha": "cfa76c6c014ab342befcbf7571eb932917406522",
+      "size": 1864
+    },
+    {
+      "path": "apps/shot-lab/components/ui/menubar.tsx",
+      "mode": "100644",
+      "gitBlobSha": "4af16a428377f81cbb3f66adfe518308e0b690d8",
+      "size": 8389
+    },
+    {
+      "path": "apps/shot-lab/components/ui/message-scroller.tsx",
+      "mode": "100644",
+      "gitBlobSha": "0b05011259c026a357380c3834bce0ead8565d22",
+      "size": 3992
+    },
+    {
+      "path": "apps/shot-lab/components/ui/message.tsx",
+      "mode": "100644",
+      "gitBlobSha": "53437e8db2b0fad1da06a7499e54ddaf116295c2",
+      "size": 2232
+    },
+    {
+      "path": "apps/shot-lab/components/ui/native-select.tsx",
+      "mode": "100644",
+      "gitBlobSha": "3058398399ad6c029ad527052475b360b114715b",
+      "size": 1995
+    },
+    {
+      "path": "apps/shot-lab/components/ui/navigation-menu.tsx",
+      "mode": "100644",
+      "gitBlobSha": "0a673f513c97fbeaae0872403b7582ab2ba7e3c3",
+      "size": 6658
+    },
+    {
+      "path": "apps/shot-lab/components/ui/pagination.tsx",
+      "mode": "100644",
+      "gitBlobSha": "1dcfb0cc050c5f2bdd930522d627313d03d3690c",
+      "size": 2717
+    },
+    {
+      "path": "apps/shot-lab/components/ui/popover.tsx",
+      "mode": "100644",
+      "gitBlobSha": "30058c4ec284ca9cad1ed1162d084ce3cd94e2b0",
+      "size": 2357
+    },
+    {
+      "path": "apps/shot-lab/components/ui/progress.tsx",
+      "mode": "100644",
+      "gitBlobSha": "b3ae25089ad549b7f13125e482f99b43dd895bd2",
+      "size": 755
+    },
+    {
+      "path": "apps/shot-lab/components/ui/radio-group.tsx",
+      "mode": "100644",
+      "gitBlobSha": "fe514536ed771f7adef0a6b9e4d1aeadc2c95481",
+      "size": 1460
+    },
+    {
+      "path": "apps/shot-lab/components/ui/resizable.tsx",
+      "mode": "100644",
+      "gitBlobSha": "a76832a10b4c5c2a137e25c16478567ba86daf0d",
+      "size": 1815
+    },
+    {
+      "path": "apps/shot-lab/components/ui/scroll-area.tsx",
+      "mode": "100644",
+      "gitBlobSha": "73c4eb1cdcd4a699b150a9ddc3e87bfb90b63d09",
+      "size": 1639
+    },
+    {
+      "path": "apps/shot-lab/components/ui/select.tsx",
+      "mode": "100644",
+      "gitBlobSha": "c0dc7120b4f78008ae5efc6d1c8b7ec8205c35d5",
+      "size": 6353
+    },
+    {
+      "path": "apps/shot-lab/components/ui/separator.tsx",
+      "mode": "100644",
+      "gitBlobSha": "cd873e3631b571060f166897b7b62e033e87c18f",
+      "size": 694
+    },
+    {
+      "path": "apps/shot-lab/components/ui/sheet.tsx",
+      "mode": "100644",
+      "gitBlobSha": "cb53bb28b6850745c9519e8e7462e05f85a50c93",
+      "size": 4188
+    },
+    {
+      "path": "apps/shot-lab/components/ui/sidebar.tsx",
+      "mode": "100644",
+      "gitBlobSha": "f5f6c5aefc88ffa2e999e284b299472215c05161",
+      "size": 21526
+    },
+    {
+      "path": "apps/shot-lab/components/ui/skeleton.tsx",
+      "mode": "100644",
+      "gitBlobSha": "3ec6be770b846170b8e7f8916e5f165e2d1730df",
+      "size": 276
+    },
+    {
+      "path": "apps/shot-lab/components/ui/slider.tsx",
+      "mode": "100644",
+      "gitBlobSha": "46ebc4b4df1e9baf1f3997a4b6c08ef80c84a9c9",
+      "size": 1991
+    },
+    {
+      "path": "apps/shot-lab/components/ui/sonner.tsx",
+      "mode": "100644",
+      "gitBlobSha": "9b20afe2e10fd9b94d1abc1ae732054b2fb9821c",
+      "size": 1034
+    },
+    {
+      "path": "apps/shot-lab/components/ui/spinner.tsx",
+      "mode": "100644",
+      "gitBlobSha": "a70e713c5b4ecb2af186efe3fadea51805f26ba5",
+      "size": 331
+    },
+    {
+      "path": "apps/shot-lab/components/ui/switch.tsx",
+      "mode": "100644",
+      "gitBlobSha": "8baa844fdb17d668b3ce07cfbd6a7ef52e2eb5eb",
+      "size": 1408
+    },
+    {
+      "path": "apps/shot-lab/components/ui/table.tsx",
+      "mode": "100644",
+      "gitBlobSha": "7add5f1a22db954ac6cb3446f1bf8c8a9fc5c335",
+      "size": 2478
+    },
+    {
+      "path": "apps/shot-lab/components/ui/tabs.tsx",
+      "mode": "100644",
+      "gitBlobSha": "b463afd170637df477e36184aa27d2ad1bd3c3e0",
+      "size": 3782
+    },
+    {
+      "path": "apps/shot-lab/components/ui/textarea.tsx",
+      "mode": "100644",
+      "gitBlobSha": "e67d8fefe50c41dfa2deed9a5096d5be7691581a",
+      "size": 759
+    },
+    {
+      "path": "apps/shot-lab/components/ui/toggle-group.tsx",
+      "mode": "100644",
+      "gitBlobSha": "9894607b212ff7182bf2024f4262da03df0a8973",
+      "size": 2308
+    },
+    {
+      "path": "apps/shot-lab/components/ui/toggle.tsx",
+      "mode": "100644",
+      "gitBlobSha": "5250c98ff7f11f531af38c227230a76b7d25bf19",
+      "size": 1565
+    },
+    {
+      "path": "apps/shot-lab/components/ui/tooltip.tsx",
+      "mode": "100644",
+      "gitBlobSha": "ec65c1e4255f050d9555c6cdade90a5f8a6c0c29",
+      "size": 1830
+    },
+    {
+      "path": "apps/shot-lab/db/index.ts",
+      "mode": "100644",
+      "gitBlobSha": "19b379900d94124b674f07ffe2dbba8f70bd8d6d",
+      "size": 423
+    },
+    {
+      "path": "apps/shot-lab/db/schema.ts",
+      "mode": "100644",
+      "gitBlobSha": "d2dd83cd250ecaa6ac022559fc9640271f2b2dd5",
+      "size": 169
+    },
+    {
+      "path": "apps/shot-lab/drizzle.config.ts",
+      "mode": "100644",
+      "gitBlobSha": "c2b2f34376984744343453838ce66658ad9d9b6a",
+      "size": 148
+    },
+    {
+      "path": "apps/shot-lab/drizzle/meta/_journal.json",
+      "mode": "100644",
+      "gitBlobSha": "4377507400414768c5915808bf080a1403cf6cb3",
+      "size": 61
+    },
+    {
+      "path": "apps/shot-lab/eslint.config.mjs",
+      "mode": "100644",
+      "gitBlobSha": "6600a56ae006c77b1143fcddc8e8ded4e724309b",
+      "size": 791
+    },
+    {
+      "path": "apps/shot-lab/examples/d1/app/api/notes/route.ts",
+      "mode": "100644",
+      "gitBlobSha": "07f8318c3c290d68163e95aa3e170ad92a235f27",
+      "size": 1700
+    },
+    {
+      "path": "apps/shot-lab/examples/d1/db/schema.ts",
+      "mode": "100644",
+      "gitBlobSha": "7bb0c157110799b9b53c767517e0d192b7201f2e",
+      "size": 370
+    },
+    {
+      "path": "apps/shot-lab/hooks/use-mobile.ts",
+      "mode": "100644",
+      "gitBlobSha": "2b0fe1dfef3b17850bbac040665f514a8ffd0f15",
+      "size": 565
+    },
+    {
+      "path": "apps/shot-lab/lib/connector-context.ts",
+      "mode": "100644",
+      "gitBlobSha": "6cdeac72bf2df63e0a73159af25e0b4564ed1d43",
+      "size": 612
+    },
+    {
+      "path": "apps/shot-lab/lib/connector-contract.mts",
+      "mode": "100644",
+      "gitBlobSha": "f146418508b4c272a4495ec5498b6f0554b1f966",
+      "size": 5362
+    },
+    {
+      "path": "apps/shot-lab/lib/connector-errors.mts",
+      "mode": "100644",
+      "gitBlobSha": "c9d2fe845ec965062d3724fd28a0892b4fbf5a9b",
+      "size": 2717
+    },
+    {
+      "path": "apps/shot-lab/lib/connector-preview.d.ts",
+      "mode": "100644",
+      "gitBlobSha": "bb3f498b67e3dfd93601626aa2675af07dfe711c",
+      "size": 433
+    },
+    {
+      "path": "apps/shot-lab/lib/connectors.ts",
+      "mode": "100644",
+      "gitBlobSha": "30b85c0dd699e7236ec1694e03466b03caa2a7dc",
+      "size": 416
+    },
+    {
+      "path": "apps/shot-lab/lib/fieldQuery.ts",
+      "mode": "100644",
+      "gitBlobSha": "d09586a7f82a5d8ff377382f45c2441dffd08c58",
+      "size": 592
+    },
+    {
+      "path": "apps/shot-lab/lib/leaderboardQuery.ts",
+      "mode": "100644",
+      "gitBlobSha": "1a99d621b148f358d9d97d3063fa320a8d4fca37",
+      "size": 192
+    },
+    {
+      "path": "apps/shot-lab/lib/pga.ts",
+      "mode": "100644",
+      "gitBlobSha": "8b6ab5b1ed947bdbd3f863c53c009579799c5fcf",
+      "size": 1174
+    },
+    {
+      "path": "apps/shot-lab/lib/scorecardQuery.ts",
+      "mode": "100644",
+      "gitBlobSha": "65f19d507fda9943061034aac61253f4f8325ea0",
+      "size": 207
+    },
+    {
+      "path": "apps/shot-lab/lib/utils.ts",
+      "mode": "100644",
+      "gitBlobSha": "b500fb167fdaa78785feb0ff03b51f8a182a44ae",
+      "size": 177
+    },
+    {
+      "path": "apps/shot-lab/lib/verification.ts",
+      "mode": "100644",
+      "gitBlobSha": "b23ae0322c4bd9bda6844b59088a781c469ad596",
+      "size": 7120
+    },
+    {
+      "path": "apps/shot-lab/next.config.ts",
+      "mode": "100644",
+      "gitBlobSha": "e9ffa3083ad279ecf95fd8eae59cb253e9a539c4",
+      "size": 133
+    },
+    {
+      "path": "apps/shot-lab/package.json",
+      "mode": "100644",
+      "gitBlobSha": "a8cb4779295c1d0ba19bc1e165cb515b87510f4e",
+      "size": 2139
+    },
+    {
+      "path": "apps/shot-lab/pnpm-lock.yaml",
+      "mode": "100644",
+      "gitBlobSha": "765789b81f68671d50f9d20779812d0550663eda",
+      "size": 345021
+    },
+    {
+      "path": "apps/shot-lab/pnpm-workspace.yaml",
+      "mode": "100644",
+      "gitBlobSha": "454dde77be0f122931de27f35b440c75b35bfbca",
+      "size": 736
+    },
+    {
+      "path": "apps/shot-lab/postcss.config.mjs",
+      "mode": "100644",
+      "gitBlobSha": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3",
+      "size": 94
+    },
+    {
+      "path": "apps/shot-lab/public/favicon.svg",
+      "mode": "100644",
+      "gitBlobSha": "ca747cb66b233fedec5ff0c84f97bb4631c05dbf",
+      "size": 712
+    },
+    {
+      "path": "apps/shot-lab/scripts/build-verified.sh",
+      "mode": "100755",
+      "gitBlobSha": "6c69cf3ad6855c25c312b67f02fd1afffb97b63d",
+      "size": 661
+    },
+    {
+      "path": "apps/shot-lab/scripts/connector-preview/connector-preview-session.mjs",
+      "mode": "100644",
+      "gitBlobSha": "aa2d2d92f663e547e4af956e3f0475a6198b1bf2",
+      "size": 6855
+    },
+    {
+      "path": "apps/shot-lab/scripts/connector-preview/host-binding.mjs",
+      "mode": "100644",
+      "gitBlobSha": "88e6efb56e6ceb044dd3c9127d26960b5bb9c5e9",
+      "size": 7793
+    },
+    {
+      "path": "apps/shot-lab/scripts/connector-preview/protocol.mjs",
+      "mode": "100644",
+      "gitBlobSha": "6476ba302de4ee408ba549fc0d790861185dd919",
+      "size": 1781
+    },
+    {
+      "path": "apps/shot-lab/scripts/connector-preview/worker.mjs",
+      "mode": "100644",
+      "gitBlobSha": "5ab638e8b4e34767e39a1d224cc9f3dd9c28c4c9",
+      "size": 618
+    },
+    {
+      "path": "apps/shot-lab/scripts/execution-profile.mjs",
+      "mode": "100644",
+      "gitBlobSha": "f27aec211320d9a5fd0dbbb07f5c508222b2b8d4",
+      "size": 624
+    },
+    {
+      "path": "apps/shot-lab/scripts/install-ci.mjs",
+      "mode": "100644",
+      "gitBlobSha": "22bd7d555c8f2a996d5bfe5be0ba9a5a43a1bf7f",
+      "size": 1685
+    },
+    {
+      "path": "apps/shot-lab/scripts/install-ci.sh",
+      "mode": "100755",
+      "gitBlobSha": "7b4a810e1663afb4572d167eb78e09b3db07be10",
+      "size": 6783
+    },
+    {
+      "path": "apps/shot-lab/scripts/install-pnpm.sh",
+      "mode": "100755",
+      "gitBlobSha": "573ecdb89461a5922386ec9ccf5a83504fa9caae",
+      "size": 9015
+    },
+    {
+      "path": "apps/shot-lab/scripts/npm-install.mjs",
+      "mode": "100644",
+      "gitBlobSha": "64ade63f6092ed209b1a76718145d80de38b34f2",
+      "size": 7025
+    },
+    {
+      "path": "apps/shot-lab/scripts/pnpm-install.mjs",
+      "mode": "100644",
+      "gitBlobSha": "ae92c9fe150ee780e46f590947ceacd03b7226ad",
+      "size": 10633
+    },
+    {
+      "path": "apps/shot-lab/scripts/run-framework.mjs",
+      "mode": "100644",
+      "gitBlobSha": "166b0c2487819135ddfb30c9267e790ebb8c498f",
+      "size": 993
+    },
+    {
+      "path": "apps/shot-lab/scripts/sites-env.mjs",
+      "mode": "100644",
+      "gitBlobSha": "a90ace6dff612ac554fe710d8212d5222bcf9e9b",
+      "size": 522
+    },
+    {
+      "path": "apps/shot-lab/scripts/sites-env.sh",
+      "mode": "100755",
+      "gitBlobSha": "d656010b7e14323be160dd4ecbac6760d1789000",
+      "size": 1600
+    },
+    {
+      "path": "apps/shot-lab/scripts/tool-environment.mjs",
+      "mode": "100644",
+      "gitBlobSha": "66d5f0ebd083f922be28c983e0a6d5de06e60e46",
+      "size": 791
+    },
+    {
+      "path": "apps/shot-lab/scripts/vite/connector-preview-plugin.mjs",
+      "mode": "100644",
+      "gitBlobSha": "f29e9953bdac6f25be5f1b58e5a02ef0457bafbe",
+      "size": 7211
+    },
+    {
+      "path": "apps/shot-lab/scripts/vite/sites-vite-plugin.LICENSE",
+      "mode": "100644",
+      "gitBlobSha": "4243cb4a9aaa50f954498e54c850773e9ba13eea",
+      "size": 1063
+    },
+    {
+      "path": "apps/shot-lab/scripts/vite/sites-vite-plugin.ts",
+      "mode": "100644",
+      "gitBlobSha": "2ece1b96530b40a7ea4981e6341b52771a07813e",
+      "size": 7185
+    },
+    {
+      "path": "apps/shot-lab/tests/data.test.mjs",
+      "mode": "100644",
+      "gitBlobSha": "de48dd2c8bec5f284a39cdf7d4813d9493bf1f5b",
+      "size": 2222
+    },
+    {
+      "path": "apps/shot-lab/tests/load.mjs",
+      "mode": "100644",
+      "gitBlobSha": "0c1d2c5bcbd0a4653eed6f7a5f405fa90adb64b4",
+      "size": 957
+    },
+    {
+      "path": "apps/shot-lab/tests/metrics.test.mjs",
+      "mode": "100644",
+      "gitBlobSha": "2c5781c65b3ab8415e1a645f368c2a561298b786",
+      "size": 1548
+    },
+    {
+      "path": "apps/shot-lab/tests/scoring-catalog.test.mjs",
+      "mode": "100644",
+      "gitBlobSha": "bf30ce1f0d7458b525a5c27c85fed5ab1ef8c39e",
+      "size": 4062
+    },
+    {
+      "path": "apps/shot-lab/tests/video-putt.test.mjs",
+      "mode": "100644",
+      "gitBlobSha": "6ca09b2f44832f10682efaa16dfc16fe9775296a",
+      "size": 6765
+    },
+    {
+      "path": "apps/shot-lab/tsconfig.json",
+      "mode": "100644",
+      "gitBlobSha": "b96b030395279e33ceb96d41da84e734b5a93078",
+      "size": 893
+    },
+    {
+      "path": "apps/shot-lab/vendor/shadcn-tailwind-4.13.0.LICENSE.md",
+      "mode": "100644",
+      "gitBlobSha": "fad4d887a681dd49233e5ed01ee2c7a1513089a0",
+      "size": 1063
+    },
+    {
+      "path": "apps/shot-lab/vendor/shadcn-tailwind-4.13.0.css",
+      "mode": "100644",
+      "gitBlobSha": "7807c58eb94de8b764b9b6b7b5d8cde6d012b17f",
+      "size": 16041
+    },
+    {
+      "path": "apps/shot-lab/vite.config.ts",
+      "mode": "100644",
+      "gitBlobSha": "c4b4b73f5d91840732a55c776eb601215e0b7b38",
+      "size": 2673
+    },
+    {
+      "path": "apps/shot-lab/worker/index.ts",
+      "mode": "100644",
+      "gitBlobSha": "f72ddaf88049e3359a20c50d2d692925895543e0",
+      "size": 1303
+    },
+    {
+      "path": "fixtures/R2026011_57366_r1.json",
+      "mode": "100644",
+      "gitBlobSha": "a5bc0e32839f46b2e74fbd5f6fd5a16bc3e7a3d6",
+      "size": 1430326
+    },
+    {
+      "path": "fixtures/hole14-green.png",
+      "mode": "100644",
+      "gitBlobSha": "335a25113b40ff03d4302ecbc8dd0219ed6f42db",
+      "size": 71605
+    },
+    {
+      "path": "prototypes/flight/plot_drive.py",
+      "mode": "100644",
+      "gitBlobSha": "4ccae8bd2d5206b1cec4b3034f68cdec3e0a9cfd",
+      "size": 4755
+    },
+    {
+      "path": "prototypes/flight/plot_hole14.py",
+      "mode": "100644",
+      "gitBlobSha": "6402de05d315e293c35bd44c4bbfc2e7fb26cd3f",
+      "size": 4825
+    },
+    {
+      "path": "prototypes/flight/requirements.txt",
+      "mode": "100644",
+      "gitBlobSha": "aa094d9f64a7cc9debc3bc069b28f8398a62508f",
+      "size": 17
+    },
+    {
+      "path": "prototypes/green-break/green_break_feature.py",
+      "mode": "100644",
+      "gitBlobSha": "60e38cf85c1570539c72e53c5eb1b6917dd6ab3b",
+      "size": 7298
+    },
+    {
+      "path": "prototypes/green-break/requirements.txt",
+      "mode": "100644",
+      "gitBlobSha": "28990de2eddde3afbbf5fc4e5b6e43d2c1fcee29",
+      "size": 24
+    },
+    {
+      "path": "schemas/caddy-zone.schema.json",
+      "mode": "100644",
+      "gitBlobSha": "92183ebba5ed9085c1cb5315dd130b25f0e98d8e",
+      "size": 10547
+    },
+    {
+      "path": "tools/extractor/README.md",
+      "mode": "100644",
+      "gitBlobSha": "b77b279d886ed1256ea54a87e399d47056b98214",
+      "size": 2410
+    },
+    {
+      "path": "tools/extractor/lookups/events-id.xlsx",
+      "mode": "100644",
+      "gitBlobSha": "c19efa42c5ce613c4e3c101b6c8a257fe12f133b",
+      "size": 17630
+    },
+    {
+      "path": "tools/extractor/lookups/player-id.csv",
+      "mode": "100644",
+      "gitBlobSha": "44718ad04428a05e26895c61ea8b91a8341fe6bc",
+      "size": 4555
+    },
+    {
+      "path": "tools/extractor/pull_tourcast.py",
+      "mode": "100644",
+      "gitBlobSha": "a621d61a4f6b3feb89be8403a253291df5c07054",
+      "size": 4695
+    },
+    {
+      "path": "tools/extractor/requirements.txt",
+      "mode": "100644",
+      "gitBlobSha": "dbb3371411d0584a23053271484a74a201c79c27",
+      "size": 103
+    }
+  ]
+}

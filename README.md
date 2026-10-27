@@ -2,6 +2,10 @@
 
 Versioned workspace for TOURCAST Shot Lab, the Python extractor, and the flight and green-break research prototypes.
 
+## Version status
+
+**Version 1 source is frozen as-is** on `release/v1.0.0`; [lock details](docs/releases/V1_LOCK.md) and [158-file source inventory](releases/v1.0.0.json) record the checkpoint. Known bugs and unfinished features remain explicit. **Weather moves to version 2**, tracked in [IVI-288](https://linear.app/nthezone/issue/IVI-288/version-2-event-weather-widget-and-api-with-hole-110-group-tracking) and the [v2 roadmap](docs/V2_ROADMAP.md). New work is separated on `version/2.0`. Branch protection is not configured.
+
 ## Start here
 
 - [Version 1.0 entities and confirmed decisions](docs/V1_PROGRAM_ENTITIES.md)
@@ -25,7 +29,7 @@ Versioned workspace for TOURCAST Shot Lab, the Python extractor, and the flight 
 | `prototypes/green-break` | Python green overlay, putt curvature and elevation experiment | Existing prototype; not integrated into the app |
 | `fixtures` | Supplied round export and provider green image | Source evidence; simulation labels retained |
 
-The 143 tracked app files are copied byte-for-byte. Program runtime code has not been repaired or deployed as part of this preservation task. The app retains its original package version `0.1.0`; hosted version 6 is a separate version identifier. New repository tags do not claim a new hosted release.
+The original preserved baseline contains 143 tracked app files copied byte-for-byte. Later reviewed source changes include nullable headshot metadata and the Caddy Zone visual component; their state is captured in the version 1 source inventory. The app retains its original package version `0.1.0`; hosted version 6 is a separate version identifier. New repository tags do not claim a new hosted release.
 
 `baselines/source-manifest.json` records SHA-256 for 155 preserved program/input files. The remote `baseline/2026-10-27` branch identifies the uploaded preservation snapshot (`65058362462e3c88d1ffb667944885fb7b3246fa`). Original module tags remain in the supplied offline Git bundle; they have not been created remotely. Snapshot branches are references, not enforced protection rules. See [GitHub import details](docs/GITHUB_IMPORT.md).
 
